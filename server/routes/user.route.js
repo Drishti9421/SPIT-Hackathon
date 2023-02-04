@@ -53,20 +53,14 @@ router.post(
   [body("email").isEmail(), body("password").isLength({ min: 5 })],
   async (req, res) => {
     let success = false;
-    const errors = validationResult(req);
-    if (!errors.isEmpty()) {
-      res.status(400).json({ success, errors: errors.array() });
-    }
     try {
+      console.log(req.body.email);
       let user = await users.findOne({ email: req.body.email });
 
       if (!user) {
         res.status(400).json({ success, error: "Email ID does not exist" });
       } else {
-        const checkPass = bcrypt.compareSync(
-          req.body.password,
-          user.password
-        );
+        const checkPass = bcrypt.compareSync(req.body.password, user.password);
         if (checkPass) {
           const data = {
             user: {
@@ -85,7 +79,7 @@ router.post(
   }
 );
 
-// router.get("/getAllDoctors", 
+// router.get("/getAllDoctors",
 // async (req, res) => {
 //   try{
 // const doctor = await doctors.find({})
