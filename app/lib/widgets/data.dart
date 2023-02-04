@@ -52,9 +52,9 @@ List<PlanetInfo> planets = [
         'https://image.shutterstock.com/image-photo/3d-render-planet-earth-viewed-600w-1069251782.jpg'
       ]),
   PlanetInfo(4,
-      name: 'Medicine',
-      text: 'Want medicine',
-      iconImage: 'lib/images/pills_.png',
+      name: 'Recycle',
+      text: 'Find shops near you',
+      iconImage: 'lib/images/Recycle.png',
       description:
           "The fourth planet from the sun is Mars, and it's a cold, desert-like place covered in dust. This dust is made of iron oxides, giving the planet its iconic red hue. Mars shares similarities with Earth: It is rocky, has mountains, valleys and canyons, and storm systems ranging from localized tornado-like dust devils to planet-engulfing dust storms. ",
       images: []),
