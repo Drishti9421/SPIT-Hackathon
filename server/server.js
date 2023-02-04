@@ -3,8 +3,11 @@ require("./db");
 const cors = require("cors");
 const app = express();
 
+const userRouter = require('./routes/user.route')
+
 app.use(cors());
 app.use(express.json());
+app.use(userRouter);
 
 const port = 5000;
 
