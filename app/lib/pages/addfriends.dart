@@ -100,9 +100,10 @@ class _AddFriendsState extends State<AddFriends> {
                       height: 30,
                       width: 80,
                       decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(20),
                         image: DecorationImage(
                             fit: BoxFit.fill,
-                            image: AssetImage('lib/images/doc11.png')),
+                            image: AssetImage('lib/images/friend2.png')),
                       ),
                     ),
                     SizedBox(
@@ -115,7 +116,7 @@ class _AddFriendsState extends State<AddFriends> {
                         borderRadius: BorderRadius.circular(20),
                         image: DecorationImage(
                             fit: BoxFit.fill,
-                            image: AssetImage('lib/images/doc15.jpg')),
+                            image: AssetImage('lib/images/friend3.png')),
                       ),
                     ),
                     SizedBox(
@@ -127,7 +128,7 @@ class _AddFriendsState extends State<AddFriends> {
                       decoration: BoxDecoration(
                         image: DecorationImage(
                             fit: BoxFit.fill,
-                            image: AssetImage('lib/images/doc13.png')),
+                            image: AssetImage('lib/images/friend4.png')),
                       ),
                     ),
                     SizedBox(
@@ -140,7 +141,7 @@ class _AddFriendsState extends State<AddFriends> {
                         borderRadius: BorderRadius.circular(20),
                         image: DecorationImage(
                             fit: BoxFit.fill,
-                            image: AssetImage('lib/images/doc14.jpg')),
+                            image: AssetImage('lib/images/friend5.png')),
                       ),
                     ),
                     SizedBox(
@@ -196,7 +197,7 @@ class _AddFriendsState extends State<AddFriends> {
                 children: [
                   Container(
                     child: Text(
-                      'Popular Doctors',
+                      'Mutual Friends',
                       style: TextStyle(
                           fontSize: 18,
                           fontFamily: 'Poppins',
@@ -216,9 +217,9 @@ class _AddFriendsState extends State<AddFriends> {
                 children: [
                   PopularCard(
                     color1: Colors.white,
-                    disease1: 'Cardiologist in Apollo hospital',
+                    disease1: 'Plant Trees',
                     doctorName: 'Drishti Dhingami',
-                    image2: 'lib/images/doc16.jpg',
+                    image2: 'lib/images/friend1.png',
                     text3: '15 Mutuals',
                   ),
                   // PopularCard(

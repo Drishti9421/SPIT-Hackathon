@@ -100,7 +100,11 @@ class _AddEventsPageState extends State<AddEventsPage> {
                 decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(20),
                     gradient: LinearGradient(
-                        colors: [Color(0xff9356fb), Color(0xffb772ea)],
+                        colors: [
+                          // Color(0xffb4fbb8),
+                          Color(0xff57c7b8),
+                          Color(0xff12958d),
+                        ],
                         begin: Alignment.topCenter,
                         end: Alignment.bottomCenter,
                         stops: [0.3, 0.7])),
