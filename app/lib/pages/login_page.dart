@@ -3,6 +3,7 @@
 import 'dart:convert';
 import 'dart:ffi';
 
+import 'package:app/pages/events.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:app/widgets/colors.dart' as color;
@@ -49,7 +50,7 @@ class _LoginPageState extends State<LoginPage> {
       token = data["authToken"];
       print(token);
       await addTokenToSF(token);
-      Get.to(() => HomePage());
+      Get.to(() => EventsPage());
     } else {
       throw "Error";
     }
