@@ -23,7 +23,6 @@ router.post("/registerevent", upload.single("image"), async (req, res) => {
     let dir = __dirname.split("\\");
     dir.pop();
     dir = dir.join("\\");
-    console.log(req.body);
     let event = await events.create({
       title: req.body.title,
       description: req.body.description,
