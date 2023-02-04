@@ -7,6 +7,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:http/http.dart';
 
+import 'pages/events.dart';
 import 'pages/home_page.dart';
 import 'pages/recyling.dart';
 
@@ -26,6 +27,6 @@ class MyApp extends StatelessWidget {
         theme: ThemeData(
           primarySwatch: Colors.blue,
         ),
-        home: LoginPage());
+        home: EventsPage());
   }
 }
