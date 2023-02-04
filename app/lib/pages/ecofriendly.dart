@@ -42,13 +42,14 @@ class _EcoFriendlyState extends State<EcoFriendly> {
             ),
             Expanded(
               child: ListView(
+                scrollDirection: Axis.vertical,
                 children: [
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceAround,
                     children: [
                       Container(
                         width: 170,
-                        height: 220,
+                        height: 250,
                         decoration: BoxDecoration(
                             borderRadius: BorderRadius.circular(30),
                             color: Colors.grey[200]),
@@ -58,10 +59,10 @@ class _EcoFriendlyState extends State<EcoFriendly> {
                             color: Colors.white,
                             borderRadius: BorderRadius.circular(15),
                             image: DecorationImage(
-                              image: AssetImage(
-                                'lib/images/doctor.png',
-                              ),
-                            ),
+                                image: AssetImage(
+                                  'lib/images/tshirt1.png',
+                                ),
+                                fit: BoxFit.fitWidth),
                             boxShadow: [
                               BoxShadow(
                                   offset: Offset(5, 5),
@@ -75,22 +76,28 @@ class _EcoFriendlyState extends State<EcoFriendly> {
                                       .withOpacity(.3)),
                             ],
                           ),
-                          child: Center(
-                            child: Align(
-                              alignment: Alignment.bottomCenter,
-                              child: Text(
-                                'Glutes',
-                                style: TextStyle(
-                                    fontSize: 20,
-                                    color: color.AppColor.homePageDetail),
+                          child: Padding(
+                            padding: const EdgeInsets.only(top: 8.0),
+                            child: Center(
+                              child: Align(
+                                alignment: Alignment.bottomCenter,
+                                child: InkWell(
+                                  onTap: () {},
+                                  child: Text(
+                                    'Buy Tshirt',
+                                    style: TextStyle(
+                                        fontSize: 20,
+                                        color: color.AppColor.homePageDetail),
+                                  ),
+                                ),
                               ),
                             ),
                           ),
                         ),
                       ),
                       Container(
-                        width: 150,
-                        height: 150,
+                        width: 170,
+                        height: 250,
                         decoration: BoxDecoration(
                             borderRadius: BorderRadius.circular(30),
                             color: Colors.grey[200]),
@@ -100,8 +107,10 @@ class _EcoFriendlyState extends State<EcoFriendly> {
                             color: Colors.white,
                             borderRadius: BorderRadius.circular(15),
                             image: DecorationImage(
-                              image: AssetImage('assets/ex2.png'),
-                            ),
+                                image: AssetImage(
+                                  'lib/images/tshirt1.png',
+                                ),
+                                fit: BoxFit.fitWidth),
                             boxShadow: [
                               BoxShadow(
                                   offset: Offset(5, 5),
@@ -115,14 +124,20 @@ class _EcoFriendlyState extends State<EcoFriendly> {
                                       .withOpacity(.3)),
                             ],
                           ),
-                          child: Center(
-                            child: Align(
-                              alignment: Alignment.bottomCenter,
-                              child: Text(
-                                'Abs',
-                                style: TextStyle(
-                                    fontSize: 20,
-                                    color: color.AppColor.homePageDetail),
+                          child: Padding(
+                            padding: const EdgeInsets.only(top: 8.0),
+                            child: Center(
+                              child: Align(
+                                alignment: Alignment.bottomCenter,
+                                child: InkWell(
+                                  onTap: () {},
+                                  child: Text(
+                                    'Buy Tshirt',
+                                    style: TextStyle(
+                                        fontSize: 20,
+                                        color: color.AppColor.homePageDetail),
+                                  ),
+                                ),
                               ),
                             ),
                           ),
@@ -137,8 +152,8 @@ class _EcoFriendlyState extends State<EcoFriendly> {
                     mainAxisAlignment: MainAxisAlignment.spaceAround,
                     children: [
                       Container(
-                        width: 150,
-                        height: 150,
+                        width: 170,
+                        height: 250,
                         decoration: BoxDecoration(
                             borderRadius: BorderRadius.circular(30),
                             color: Colors.grey[200]),
@@ -148,36 +163,45 @@ class _EcoFriendlyState extends State<EcoFriendly> {
                             color: Colors.white,
                             borderRadius: BorderRadius.circular(15),
                             image: DecorationImage(
-                                image: AssetImage('assets/ex3.png')),
+                                image: AssetImage(
+                                  'lib/images/tshirt1.png',
+                                ),
+                                fit: BoxFit.fitWidth),
                             boxShadow: [
-                              BoxShadow(
-                                  offset: Offset(-5, -5),
-                                  blurRadius: 3,
-                                  color: color.AppColor.gradientSecond
-                                      .withOpacity(.3)),
                               BoxShadow(
                                   offset: Offset(5, 5),
                                   blurRadius: 3,
                                   color: color.AppColor.gradientSecond
                                       .withOpacity(.3)),
+                              BoxShadow(
+                                  offset: Offset(-5, -5),
+                                  blurRadius: 3,
+                                  color: color.AppColor.gradientSecond
+                                      .withOpacity(.3)),
                             ],
                           ),
-                          child: Center(
-                            child: Align(
-                              alignment: Alignment.bottomCenter,
-                              child: Text(
-                                'Legs',
-                                style: TextStyle(
-                                    fontSize: 20,
-                                    color: color.AppColor.homePageDetail),
+                          child: Padding(
+                            padding: const EdgeInsets.only(top: 8.0),
+                            child: Center(
+                              child: Align(
+                                alignment: Alignment.bottomCenter,
+                                child: InkWell(
+                                  onTap: () {},
+                                  child: Text(
+                                    'Buy Tshirt',
+                                    style: TextStyle(
+                                        fontSize: 20,
+                                        color: color.AppColor.homePageDetail),
+                                  ),
+                                ),
                               ),
                             ),
                           ),
                         ),
                       ),
                       Container(
-                        width: 150,
-                        height: 150,
+                        width: 170,
+                        height: 250,
                         decoration: BoxDecoration(
                             borderRadius: BorderRadius.circular(30),
                             color: Colors.grey[200]),
@@ -187,7 +211,10 @@ class _EcoFriendlyState extends State<EcoFriendly> {
                             color: Colors.white,
                             borderRadius: BorderRadius.circular(15),
                             image: DecorationImage(
-                                image: AssetImage('assets/ex4.png')),
+                                image: AssetImage(
+                                  'lib/images/tshirt1.png',
+                                ),
+                                fit: BoxFit.fitWidth),
                             boxShadow: [
                               BoxShadow(
                                   offset: Offset(5, 5),
@@ -201,21 +228,27 @@ class _EcoFriendlyState extends State<EcoFriendly> {
                                       .withOpacity(.3)),
                             ],
                           ),
-                          child: Center(
-                            child: Align(
-                              alignment: Alignment.bottomCenter,
-                              child: Text(
-                                'Arms',
-                                style: TextStyle(
-                                    fontSize: 20,
-                                    color: color.AppColor.homePageDetail),
+                          child: Padding(
+                            padding: const EdgeInsets.only(top: 8.0),
+                            child: Center(
+                              child: Align(
+                                alignment: Alignment.bottomCenter,
+                                child: InkWell(
+                                  onTap: () {},
+                                  child: Text(
+                                    'Buy Tshirt',
+                                    style: TextStyle(
+                                        fontSize: 20,
+                                        color: color.AppColor.homePageDetail),
+                                  ),
+                                ),
                               ),
                             ),
                           ),
                         ),
                       ),
                     ],
-                  )
+                  ),
                 ],
               ),
             )

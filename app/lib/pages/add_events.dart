@@ -62,7 +62,6 @@ class _AddEventsPageState extends State<AddEventsPage> {
 
   @override
   void initState() {
-    // TODO: implement initState
     super.initState();
     getTokenFromSF();
   }
