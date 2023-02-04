@@ -1,9 +1,10 @@
-// ignore_for_file: use_key_in_widget_constructors, library_private_types_in_public_api, import_of_legacy_library_into_null_safe, prefer_const_literals_to_create_immutables, prefer_const_constructors, avoid_print, unused_import
+// ignore_for_file: use_key_in_widget_constructors, library_private_types_in_public_api, import_of_legacy_library_into_null_safe, prefer_const_literals_to_create_immutables, prefer_const_constructors, avoid_print, unused_import, prefer_interpolation_to_compose_strings, unnecessary_cast
 
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 import 'package:flutter_swiper/flutter_swiper.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 import '../widgets/data.dart';
 import 'package:app/widgets/colors.dart' as color;
@@ -16,6 +17,24 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
+  late String tokenValue;
+
+  getTokenFromSF() async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+
+    setState(() {
+      tokenValue = prefs.getString('token')!;
+    });
+    return tokenValue;
+  }
+
+  @override
+  void initState() {
+    // TODO: implement initState
+    getTokenFromSF().then((tokenValue) => {print(tokenValue)});
+    super.initState();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(

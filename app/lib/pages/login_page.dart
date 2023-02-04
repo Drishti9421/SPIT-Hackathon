@@ -1,8 +1,13 @@
-// ignore_for_file: prefer_const_constructors, sized_box_for_whitespace, unused_field, sort_child_properties_last, avoid_print, unused_local_variable, unused_import
+// ignore_for_file: prefer_const_constructors, sized_box_for_whitespace, unused_field, sort_child_properties_last, avoid_print, unused_local_variable, unused_import, prefer_typing_uninitialized_variables
+
+import 'dart:convert';
+import 'dart:ffi';
 
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:app/widgets/colors.dart' as color;
+import 'package:http/http.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 import 'home_page.dart';
 
@@ -15,9 +20,40 @@ class LoginPage extends StatefulWidget {
 
 class _LoginPageState extends State<LoginPage> {
   // final _auth = AuthService();
-  // final _formKey = GlobalKey<FormState>();
-  // String email = "";
-  // String pass = "";
+  final _formKey = GlobalKey<FormState>();
+  String email = "";
+  String pass = "";
+  String token = "";
+  bool isLoading = true;
+
+  addTokenToSF(token) async {
+    print(token);
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    prefs.setString('token', token);
+  }
+
+  Future<void> getData() async {
+    print(email);
+    print(pass);
+    var res = await post(Uri.parse("http://10.0.2.2:5000/loginuser"),
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: jsonEncode({
+          "email": email,
+          "password": pass,
+        }));
+    if (res.statusCode == 200) {
+      var data = jsonDecode(res.body);
+      print(data);
+      token = data["authToken"];
+      print(token);
+      await addTokenToSF(token);
+      Get.to(() => HomePage());
+    } else {
+      throw "Error";
+    }
+  }
   // List<String> doctors = [
   //   'ayushtest@gmail.com',
   //   'ayush@doctor.com',
@@ -114,7 +150,7 @@ class _LoginPageState extends State<LoginPage> {
                                   // validator: (val) => val!.isEmail
                                   //     ? null
                                   //     : 'Enter a valid email',
-                                  // onChanged: (val) => email = val,
+                                  onChanged: (val) => email = val,
                                   decoration: InputDecoration(
                                     labelText: 'Email Address',
                                     labelStyle: TextStyle(
@@ -145,7 +181,7 @@ class _LoginPageState extends State<LoginPage> {
                                   // validator: (val) => val!.length < 6
                                   //     ? "Minimum 6 chars"
                                   //     : null,
-                                  // onChanged: (val) => pass = val,
+                                  onChanged: (val) => pass = val,
                                   decoration: InputDecoration(
                                     labelText: 'Password',
                                     labelStyle: TextStyle(
@@ -187,27 +223,7 @@ class _LoginPageState extends State<LoginPage> {
                               child: Center(
                                 child: TextButton(
                                     onPressed: () async {
-                                      // if (_formKey.currentState!.validate()) {
-                                      //   final result =
-                                      //       await _auth.signInWithEmailPassword(
-                                      //           email, pass);
-                                      //   // print(result!.email);
-                                      //   if (result != null) {
-                                      //     String emailid =
-                                      //         result.email.toString();
-                                      //     if (checkDoctor(emailid)) {
-                                      //       Get.to(() => DoctorBottomBar());
-                                      //     } else if (emailid ==
-                                      //         'avish@gmail.com') {
-                                      //       Get.to(() => DoctorBottomBar());
-                                      //     } else if (emailid ==
-                                      //         'hetvi@gmail.com') {
-                                      //       Get.to(() => NgoPage());
-                                      //     } else {
-                                      //       Get.to(() => HomePage());
-                                      //     }
-                                      //   }
-                                      // }
+                                      await getData();
                                     },
                                     //  async {
                                     //   if (_formKey.currentState!.validate()) {
