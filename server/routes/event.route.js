@@ -46,19 +46,16 @@ router.post("/registerevent", upload.single("image"), async (req, res) => {
     console.log(err);
     res.json({ status: "error", error: err });
   }
-);
+});
 
-
-router.get("/allEvents", 
-async (req, res) => {
-  try{
-const event = await events.find({isOver: false})
-res.json(event)
-  }catch (err){
+router.get("/allEvents", async (req, res) => {
+  try {
+    const event = await events.find({ isOver: false });
+    res.json(event);
+  } catch (err) {
     console.log(err);
-    res.status(500).send("Some error occured")
+    res.status(500).send("Some error occured");
   }
-
 });
 
 module.exports = router;
