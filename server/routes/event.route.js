@@ -49,53 +49,17 @@ router.post(
   }
 );
 
-// router.post(
-//   "/logindoctor",
-//   [body("email").isEmail(), body("password").isLength({ min: 5 })],
-//   async (req, res) => {
-//     let success = false;
-//     const errors = validationResult(req);
-//     if (!errors.isEmpty()) {
-//       res.status(400).json({ success, errors: errors.array() });
-//     }
-//     try {
-//       let doctor = await doctors.findOne({ email: req.body.email });
 
-//       if (!doctor) {
-//         res.status(400).json({ success, error: "Email ID does not exist" });
-//       } else {
-//         const checkPass = bcrypt.compareSync(
-//           req.body.password,
-//           doctor.password
-//         );
-//         if (checkPass) {
-//           const data = {
-//             doctor: {
-//               id: doctor.id,
-//             },
-//           };
-//           const authToken = jwt.sign(data, "hetvi");
-//           success = true;
-//           res.json({ success, authToken });
-//         }
-//       }
-//     } catch (err) {
-//       console.log(err);
-//       res.json({ status: "error", error: err });
-//     }
-//   }
-// );
+router.get("/allEvents", 
+async (req, res) => {
+  try{
+const event = await events.find({isOver: false})
+res.json(event)
+  }catch (err){
+    console.log(err);
+    res.status(500).send("Some error occured")
+  }
 
-// router.get("/getAllDoctors", 
-// async (req, res) => {
-//   try{
-// const doctor = await doctors.find({})
-// res.json(doctor)
-//   }catch (err){
-//     console.log(err);
-//     res.status(500).send("Some error occured")
-//   }
-
-// });
+});
 
 module.exports = router;

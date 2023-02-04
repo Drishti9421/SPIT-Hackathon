@@ -48,42 +48,42 @@ router.post(
   }
 );
 
-// router.post(
-//   "/logindoctor",
-//   [body("email").isEmail(), body("password").isLength({ min: 5 })],
-//   async (req, res) => {
-//     let success = false;
-//     const errors = validationResult(req);
-//     if (!errors.isEmpty()) {
-//       res.status(400).json({ success, errors: errors.array() });
-//     }
-//     try {
-//       let doctor = await doctors.findOne({ email: req.body.email });
+router.post(
+  "/loginuser",
+  [body("email").isEmail(), body("password").isLength({ min: 5 })],
+  async (req, res) => {
+    let success = false;
+    const errors = validationResult(req);
+    if (!errors.isEmpty()) {
+      res.status(400).json({ success, errors: errors.array() });
+    }
+    try {
+      let user = await users.findOne({ email: req.body.email });
 
-//       if (!doctor) {
-//         res.status(400).json({ success, error: "Email ID does not exist" });
-//       } else {
-//         const checkPass = bcrypt.compareSync(
-//           req.body.password,
-//           doctor.password
-//         );
-//         if (checkPass) {
-//           const data = {
-//             doctor: {
-//               id: doctor.id,
-//             },
-//           };
-//           const authToken = jwt.sign(data, "hetvi");
-//           success = true;
-//           res.json({ success, authToken });
-//         }
-//       }
-//     } catch (err) {
-//       console.log(err);
-//       res.json({ status: "error", error: err });
-//     }
-//   }
-// );
+      if (!user) {
+        res.status(400).json({ success, error: "Email ID does not exist" });
+      } else {
+        const checkPass = bcrypt.compareSync(
+          req.body.password,
+          user.password
+        );
+        if (checkPass) {
+          const data = {
+            user: {
+              id: user.id,
+            },
+          };
+          const authToken = jwt.sign(data, "hetvi");
+          success = true;
+          res.json({ success, authToken });
+        }
+      }
+    } catch (err) {
+      console.log(err);
+      res.json({ status: "error", error: err });
+    }
+  }
+);
 
 // router.get("/getAllDoctors", 
 // async (req, res) => {
