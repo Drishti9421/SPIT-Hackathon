@@ -2,7 +2,8 @@
 
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:app/homepage.dart';
+
+import 'home_page.dart';
 
 class AddEventsPage extends StatefulWidget {
   const AddEventsPage({super.key});
