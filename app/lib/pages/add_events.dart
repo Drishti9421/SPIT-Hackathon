@@ -1,8 +1,8 @@
 // ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables, sort_child_properties_last
 
+import 'package:app/pages/home_page.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:app/homepage.dart';
 
 class AddEventsPage extends StatefulWidget {
   const AddEventsPage({super.key});
