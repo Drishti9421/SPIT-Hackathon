@@ -10,6 +10,8 @@ class MarketPlace extends StatefulWidget {
 class _MarketPlaceState extends State<MarketPlace> {
   @override
   Widget build(BuildContext context) {
-    return Container();
+    return Container(
+      color: Colors.white,
+    );
   }
 }
