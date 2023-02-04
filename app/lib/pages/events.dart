@@ -32,7 +32,7 @@ class _EventsPageState extends State<EventsPage> {
   }
 
   void fetch() async {
-    url = Uri.parse('http://10.0.2.2:5000/allEvents');
+    url = Uri.parse('http://192.168.137.228:5000/allEvents');
     response = await get(url);
     print(response.body);
     setState(() {
@@ -97,13 +97,13 @@ class _EventsPageState extends State<EventsPage> {
                                       end: Alignment.bottomCenter,
                                       stops: [0.3, 0.7])),
                               child: Padding(
-                                padding: const EdgeInsets.only(left: 0.0),
+                                padding: const EdgeInsets.only(left: 0),
                                 child: Row(
                                   children: [
                                     Column(
                                       children: [
                                         Container(
-                                          height: 320,
+                                          height: 300,
                                           width: 334,
                                           decoration: BoxDecoration(
                                               color: Colors.white24,
@@ -119,14 +119,14 @@ class _EventsPageState extends State<EventsPage> {
                                                     left: 0),
                                                 child: Container(
                                                   margin:
-                                                      EdgeInsets.only(left: 50),
-                                                  width: 260,
-                                                  height: 334,
+                                                      EdgeInsets.only(left: 0),
+                                                  width: 324,
+                                                  height: 500,
                                                   decoration: BoxDecoration(
                                                       image: DecorationImage(
                                                           image: AssetImage(
-                                                              'lib/images/crocin.png'),
-                                                          fit: BoxFit.fitWidth),
+                                                              'lib/images/beach_drive.webp'),
+                                                          fit: BoxFit.fill),
                                                       borderRadius:
                                                           BorderRadius.circular(
                                                               30)),
