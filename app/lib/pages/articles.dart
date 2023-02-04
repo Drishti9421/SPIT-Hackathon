@@ -103,7 +103,7 @@ class _FindArticleState extends State<FindArticle> {
                                         left: 15,
                                       ),
                                       child: Text(
-                                        'Source: ${data['articles'][i]['source']['name']}k',
+                                        'Source: ${data['articles'][i]['source']['name']}',
                                         style: TextStyle(
                                             color: Color(0xFF4A545E),
                                             fontSize: 10,
@@ -127,7 +127,7 @@ class _FindArticleState extends State<FindArticle> {
                                             fit: BoxFit.cover,
                                             image: NetworkImage(data['articles']
                                                     [i]['urlToImage'] ??
-                                                "http://lib/images/doctor.0png"))),
+                                                "http://lib/images/doctor.png"))),
                                   ),
                                 ),
                               ),
