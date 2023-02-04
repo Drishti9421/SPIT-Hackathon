@@ -1,101 +1,61 @@
 const express = require("express");
-const users = require("../models/event.model");
 const router = express.Router();
 const { body, validationResult } = require("express-validator");
 const bcrypt = require("bcryptjs");
 var jwt = require("jsonwebtoken");
+const multer = require("multer");
+const fs = require("fs");
+var path = require("path");
+const events = require("../models/event.model");
 
-router.post(
-  "/registeruser",
-  [body("email").isEmail(), body("password").isLength({ min: 5 })],
-  async (req, res) => {
+var storage = multer.diskStorage({
+  destination: "uploads",
+  filename: (req, file, cb) => {
+    cb(null, Date.now() + ".jpg");
+  },
+});
+
+var upload = multer({ storage: storage });
+
+router.post("/registerevent", upload.single("image"), async (req, res) => {
+  try {
     let success = false;
-    const errors = validationResult(req);
-    if (!errors.isEmpty()) {
-      res.status(400).json({ success, errors: errors.array() });
-    }
-    try {
-      let user = await users.findOne({ email: req.body.email });
+    let dir = __dirname.split("\\");
+    dir.pop();
+    dir = dir.join("\\");
+    let event = await events.create({
+      title: req.body.title,
+      description: req.body.description,
+      date: req.body.date,
+      time: req.body.time,
+      image: {
+        data: fs.readFileSync(
+          path.join(dir + "\\uploads\\" + req.file.filename)
+        ),
+        contentType: "image/jpg",
+      },
+      categories: req.body.categories,
+      venue: req.body.venue,
+      addedby: req.body.addedby,
+      isOver: false,
+    });
 
-      if (user) {
-        res.status(400).json({ success, error: "Email ID already used" });
-      }
-
-      const salt = await bcrypt.genSalt(10);
-      const secPass = await bcrypt.hash(req.body.password, salt);
-
-      user = await users.create({
-        name: req.body.name,
-        email: req.body.email,
-        password: secPass,
-        address: req.body.address,
-        number: req.body.number,
-        points: req.body.points,
-      });
-      const data = {
-        user: {
-          id: user.id,
-        },
-      };
-
-      const authToken = jwt.sign(data, "hetvi");
-
-      success = true;
-      res.json({ success, authToken });
-    } catch (err) {
-      console.log(err);
-      res.json({ status: "error", error: err });
-    }
+    success = true;
+    res.json({ success });
+  } catch (err) {
+    console.log(err);
+    res.json({ status: "error", error: err });
   }
-);
+});
 
-// router.post(
-//   "/logindoctor",
-//   [body("email").isEmail(), body("password").isLength({ min: 5 })],
-//   async (req, res) => {
-//     let success = false;
-//     const errors = validationResult(req);
-//     if (!errors.isEmpty()) {
-//       res.status(400).json({ success, errors: errors.array() });
-//     }
-//     try {
-//       let doctor = await doctors.findOne({ email: req.body.email });
-
-//       if (!doctor) {
-//         res.status(400).json({ success, error: "Email ID does not exist" });
-//       } else {
-//         const checkPass = bcrypt.compareSync(
-//           req.body.password,
-//           doctor.password
-//         );
-//         if (checkPass) {
-//           const data = {
-//             doctor: {
-//               id: doctor.id,
-//             },
-//           };
-//           const authToken = jwt.sign(data, "hetvi");
-//           success = true;
-//           res.json({ success, authToken });
-//         }
-//       }
-//     } catch (err) {
-//       console.log(err);
-//       res.json({ status: "error", error: err });
-//     }
-//   }
-// );
-
-// router.get("/getAllDoctors", 
-// async (req, res) => {
-//   try{
-// const doctor = await doctors.find({})
-// res.json(doctor)
-//   }catch (err){
-//     console.log(err);
-//     res.status(500).send("Some error occured")
-//   }
-
-// });
+router.get("/allEvents", async (req, res) => {
+  try {
+    const event = await events.find({ isOver: false });
+    res.json(event);
+  } catch (err) {
+    console.log(err);
+    res.status(500).send("Some error occured");
+  }
+});
 
 module.exports = router;
