@@ -28,6 +28,6 @@ class AppColor {
   static Color titleTextColor = Colors.white;
   static Color contentTextColor = Color(0xff868686);
   static Color navigationColor = Color(0xFF00C9FF);
-  static Color gradientStartColor = Color(0xFFd772ea);
-  static Color gradientEndColor = Color(0xFF00C9FF);
+  static Color gradientStartColor = Color(0xFF47ad5d);
+  static Color gradientEndColor = Color(0xFF349ad8a);
 }

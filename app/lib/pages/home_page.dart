@@ -37,13 +37,13 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: color.AppColor.gradientEndColor,
+      backgroundColor: Color(0xff9356FB),
       body: Container(
         decoration: BoxDecoration(
             gradient: LinearGradient(
                 colors: [
-                  color.AppColor.gradientStartColor,
-                  color.AppColor.gradientEndColor
+                  Color(0xffD772EA),
+                  Color(0xff9356FB),
                 ],
                 begin: Alignment.topCenter,
                 end: Alignment.bottomCenter,
@@ -146,7 +146,7 @@ class _HomePageState extends State<HomePage> {
                                         planets[index].name,
                                         style: TextStyle(
                                           fontFamily: 'Avenir',
-                                          fontSize: 44,
+                                          fontSize: 35,
                                           color: const Color(0xff47455f),
                                           fontWeight: FontWeight.w900,
                                         ),
@@ -156,7 +156,7 @@ class _HomePageState extends State<HomePage> {
                                         planets[index].text,
                                         style: TextStyle(
                                           fontFamily: 'Avenir',
-                                          fontSize: 23,
+                                          fontSize: 18,
                                           color:
                                               color.AppColor.primaryTextColor,
                                           fontWeight: FontWeight.w500,

@@ -37,7 +37,7 @@ class _LoginPageState extends State<LoginPage> {
   Future<void> getData() async {
     print(email);
     print(pass);
-    var res = await post(Uri.parse("http://10.0.2.2:5000/loginuser"),
+    var res = await post(Uri.parse("http://192.168.137.228:5000/loginuser"),
         headers: {
           "Content-Type": "application/json",
         },
@@ -68,7 +68,7 @@ class _LoginPageState extends State<LoginPage> {
   //   if (doctors.contains(email)) {
   //     return true;
   //   }
-  //   return false;
+  //   return false
   // }
 
   @override
@@ -114,7 +114,7 @@ class _LoginPageState extends State<LoginPage> {
                   width: 320,
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(20),
-                    color: Color(0xFFe1f5ea),
+                    color: Color(0xFFf0f0f0).withOpacity(0.8),
                     boxShadow: [
                       BoxShadow(
                         offset: Offset(6, 6),
