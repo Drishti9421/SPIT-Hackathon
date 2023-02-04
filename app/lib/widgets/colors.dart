@@ -5,11 +5,11 @@ import 'package:flutter/material.dart';
 
 class AppColor {
   static Color homePageBackground = const Color(0xFFfbfcff);
-  static Color gradientFirst = const Color(0xff9356FB);
-  static Color gradientSecond = const Color(0x00d772ea);
+  static Color gradientFirst = const Color(0xff02e364);
+  static Color gradientSecond = const Color(0x0000C9FF);
   static Color homePageTitle = const Color(0xFF302f51);
   static Color homePageSubtitle = const Color(0xFF414160);
-  static Color homePageDetail = const Color(0xFF6588f4);
+  static Color homePageDetail = const Color(0xFF00C9FF);
   static Color homePageIcons = const Color(0xFF3b3c5c);
   static Color homePageContainerTextSmall = const Color(0xFFf4f5fd);
   static Color homePageContainerTextBig = const Color(0xFFffffff);
@@ -27,7 +27,7 @@ class AppColor {
   static Color secondaryTextColor = Color(0xFFE4979E);
   static Color titleTextColor = Colors.white;
   static Color contentTextColor = Color(0xff868686);
-  static Color navigationColor = Color(0xFF6751B5);
+  static Color navigationColor = Color(0xFF00C9FF);
   static Color gradientStartColor = Color(0xFFd772ea);
-  static Color gradientEndColor = Color(0xFF9356fb);
+  static Color gradientEndColor = Color(0xFF00C9FF);
 }
