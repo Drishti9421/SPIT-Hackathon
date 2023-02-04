@@ -8,6 +8,8 @@ import 'package:flutter_swiper/flutter_swiper.dart';
 import '../widgets/data.dart';
 import 'package:app/widgets/colors.dart' as color;
 
+import 'marketplace.dart';
+
 class HomePage extends StatefulWidget {
   @override
   _HomePageState createState() => _HomePageState();
@@ -86,13 +88,13 @@ class _HomePageState extends State<HomePage> {
                     return InkWell(
                       onTap: () {
                         if (index == 1) {
-                          Get.to(() => DoctorUser());
+                          Get.to(() => MarketPlace());
                         } else if (index == 2) {
-                          Get.to(() => DescriptionMedicine());
+                          Get.to(() => MarketPlace());
                         } else if (index == 3) {
-                          Get.to(() => WantPage());
+                          Get.to(() => MarketPlace());
                         } else {
-                          Get.to(() => DonatePage());
+                          Get.to(() => MarketPlace());
                         }
                         // Navigator.push(
                         //   context,
@@ -222,7 +224,7 @@ class _HomePageState extends State<HomePage> {
                 color: Colors.white,
               ),
               onPressed: () {
-                Get.to(() => Prescription());
+                Get.to(() => MarketPlace());
               },
             ),
             IconButton(
@@ -231,7 +233,7 @@ class _HomePageState extends State<HomePage> {
                 color: Colors.white,
               ),
               onPressed: () {
-                Get.to(() => Profile());
+                Get.to(() => MarketPlace());
               },
             ),
           ],
