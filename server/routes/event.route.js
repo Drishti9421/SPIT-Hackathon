@@ -7,6 +7,9 @@ const multer = require("multer");
 const fs = require("fs");
 var path = require("path");
 const events = require("../models/event.model");
+const users = require("../models/user.model");
+const { findByIdAndUpdate } = require("../models/event.model");
+const fetchUser = require("../middleware/fetchUser");
 
 var storage = multer.diskStorage({
   destination: "uploads",
@@ -57,5 +60,18 @@ router.get("/allEvents", async (req, res) => {
     res.status(500).send("Some error occured");
   }
 });
+
+router.post("/participate", fetchUser, async (req, res) => {
+  try {
+    const user = await users.findById(req.user.id);
+    user.participating = req.body.eventid;
+    // const event = await events.findById(req.body('event-id'))
+    const event = await events.findOneAndUpdate({_id: req.body.eventid}, {$push: {participantid : req.user.id}})
+    res.send(event)
+  } catch (error) {
+    console.log(error);
+    res.status(500).send("Some error occured");
+  }
+})
 
 module.exports = router;

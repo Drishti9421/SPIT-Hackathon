@@ -26,6 +26,10 @@ const userSchema = new Schema({
     type: Number,
     default: 0,
   },
+  participating: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: "Event",
+  }
 });
 
 const users = mongoose.model("User", userSchema);
