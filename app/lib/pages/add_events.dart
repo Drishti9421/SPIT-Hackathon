@@ -3,6 +3,7 @@
 import 'package:app/pages/home_page.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+
 import 'dart:convert';
 import 'package:http/http.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -61,7 +62,6 @@ class _AddEventsPageState extends State<AddEventsPage> {
 
   @override
   void initState() {
-    // TODO: implement initState
     super.initState();
     getTokenFromSF();
   }
