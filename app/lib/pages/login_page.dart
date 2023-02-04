@@ -36,6 +36,7 @@ class _LoginPageState extends State<LoginPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Color(0xffb6ecfa),
       body: SafeArea(
         child: SingleChildScrollView(
           child: Container(
@@ -43,9 +44,9 @@ class _LoginPageState extends State<LoginPage> {
             child: Stack(
               children: [
                 Positioned(
-                    top: 30,
-                    right: 20,
-                    child: Image.asset('lib/images/Login Bg Top.png')),
+                    top: 105,
+                    right: -50,
+                    child: Image.asset('lib/images/cloud.png')),
                 Positioned(
                   left: 20,
                   top: 50,
@@ -72,16 +73,16 @@ class _LoginPageState extends State<LoginPage> {
                   top: 225,
                   left: 32,
                   child: Container(
-                    height: 450,
+                    height: 390,
                     width: 320,
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(20),
-                      color: Color(0xFFFFFFFF),
+                      color: Color(0xFFe1f5ea),
                       boxShadow: [
                         BoxShadow(
-                          offset: Offset(10, 10),
+                          offset: Offset(6, 6),
                           blurRadius: 12,
-                          color: color.AppColor.gradientSecond.withOpacity(.3),
+                          color: color.AppColor.gradientSecond.withOpacity(.2),
                         ),
                       ],
                     ),
@@ -171,7 +172,7 @@ class _LoginPageState extends State<LoginPage> {
                               'Forgot Password?',
                               style: TextStyle(
                                   fontSize: 17,
-                                  color: color.AppColor.gradientFirst,
+                                  color: Color(0xff00c9ff),
                                   fontFamily: 'Poppins',
                                   fontWeight: FontWeight.w500),
                             ),
@@ -275,7 +276,7 @@ class _LoginPageState extends State<LoginPage> {
                               'Create Account',
                               style: TextStyle(
                                   fontSize: 20,
-                                  color: color.AppColor.gradientFirst,
+                                  color: Color(0xff00c9ff),
                                   fontFamily: 'Poppins',
                                   fontWeight: FontWeight.w600),
                             ),
@@ -287,27 +288,27 @@ class _LoginPageState extends State<LoginPage> {
                 ),
                 Container(
                   height: 150,
-                  margin: EdgeInsets.only(top: 650, left: 0),
+                  margin: EdgeInsets.only(top: 640, left: 10),
                   decoration: BoxDecoration(
                       image: DecorationImage(
                           image: AssetImage(
-                            'lib/images/Login Bg Bottom (1).png',
+                            'lib/images/login_logo.png',
                           ),
                           fit: BoxFit.cover)),
                 ),
                 Positioned(
                     right: 0,
-                    top: 160,
-                    left: 150,
+                    top: -80,
+                    left: 200,
                     child: Container(
-                      height: 150,
-                      width: 180,
+                      height: 550,
+                      width: 380,
                       decoration: BoxDecoration(
                           image: DecorationImage(
                               image: AssetImage(
-                                'lib/images/Injection.png',
+                                'lib/images/bird_flying.gif',
                               ),
-                              fit: BoxFit.fitWidth)),
+                              fit: BoxFit.fitHeight)),
                     ))
               ],
             ),
