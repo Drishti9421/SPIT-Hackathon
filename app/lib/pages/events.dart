@@ -1,4 +1,4 @@
-// ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables, prefer_typing_uninitialized_variables, avoid_print, avoid_unnecessary_containers
+// ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables, prefer_typing_uninitialized_variables, avoid_print, avoid_unnecessary_containers, prefer_if_null_operators
 
 import 'dart:convert';
 
@@ -18,26 +18,56 @@ class EventsPage extends StatefulWidget {
 
 class _EventsPageState extends State<EventsPage> {
   late String tokenValue;
+  late String uid;
   late var url;
   late var response;
   var events;
   bool isloading = true;
+  bool participated = false;
 
   getTokenFromSF() async {
     SharedPreferences prefs = await SharedPreferences.getInstance();
 
     setState(() {
       tokenValue = prefs.getString('token')!;
+      fetchUser();
+    });
+  }
+
+  void participate(id) async {
+    print(id);
+    url = Uri.parse('http://10.0.2.2:5000/participate');
+    response = await post(
+      url,
+      headers: {"auth-token": tokenValue, "Content-Type": "application/json"},
+      body: jsonEncode({
+        "eventid": id,
+      }),
+    );
+
+    setState(() {
+      participated = true;
     });
   }
 
   void fetch() async {
-    url = Uri.parse('http://10.0.2.2:5000/allEvents');
+    url = Uri.parse('http://192.168.137.228:5000/allEvents');
     response = await get(url);
     print(response.body);
     setState(() {
       events = jsonDecode(response.body);
+      print(events[0]['participantid']);
       isloading = false;
+    });
+  }
+
+  void fetchUser() async {
+    url = Uri.parse('http://10.0.2.2:5000/getUserId');
+    response = await get(url, headers: {"auth-token": tokenValue});
+    print(response.body);
+    setState(() {
+      var u = jsonDecode(response.body);
+      uid = u['_id'];
     });
   }
 
@@ -96,13 +126,13 @@ class _EventsPageState extends State<EventsPage> {
                                       end: Alignment.bottomCenter,
                                       stops: [0.3, 0.7])),
                               child: Padding(
-                                padding: const EdgeInsets.only(left: 0.0),
+                                padding: const EdgeInsets.only(left: 0),
                                 child: Row(
                                   children: [
                                     Column(
                                       children: [
                                         Container(
-                                          height: 320,
+                                          height: 300,
                                           width: 334,
                                           decoration: BoxDecoration(
                                               color: Colors.white24,
@@ -118,14 +148,14 @@ class _EventsPageState extends State<EventsPage> {
                                                     left: 0),
                                                 child: Container(
                                                   margin:
-                                                      EdgeInsets.only(left: 50),
-                                                  width: 260,
-                                                  height: 334,
+                                                      EdgeInsets.only(left: 0),
+                                                  width: 324,
+                                                  height: 500,
                                                   decoration: BoxDecoration(
                                                       image: DecorationImage(
                                                           image: AssetImage(
-                                                              'lib/images/crocin.png'),
-                                                          fit: BoxFit.fitWidth),
+                                                              'lib/images/beach_drive.webp'),
+                                                          fit: BoxFit.fill),
                                                       borderRadius:
                                                           BorderRadius.circular(
                                                               30)),
@@ -206,7 +236,7 @@ class _EventsPageState extends State<EventsPage> {
                                                 height: 10,
                                               ),
                                               Text(
-                                                'Participants: ${(events[i]['participants'] ?? []).length}',
+                                                'Participants: ${(events[i]['participantid'] ?? []).length}',
                                                 style: TextStyle(
                                                     fontSize: 18,
                                                     fontFamily: 'Poppins',
@@ -236,9 +266,21 @@ class _EventsPageState extends State<EventsPage> {
                                                             20),
                                                     color: Colors.white),
                                                 child: TextButton(
-                                                    onPressed: () {
-                                                      print(tokenValue);
-                                                    },
+                                                    onPressed: participated
+                                                        ? null
+                                                        : () {
+                                                            // ignore: unused_label
+                                                            print(tokenValue);
+                                                            participate(
+                                                                events[i]
+                                                                    ['_id']);
+                                                          },
+                                                    style: TextButton.styleFrom(
+                                                      disabledForegroundColor:
+                                                          Colors.grey
+                                                              .withOpacity(
+                                                                  0.38),
+                                                    ),
                                                     child: Text(
                                                       'Participate',
                                                       style: TextStyle(

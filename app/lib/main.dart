@@ -30,6 +30,10 @@ class MyApp extends StatelessWidget {
         theme: ThemeData(
           primarySwatch: Colors.blue,
         ),
+<<<<<<< HEAD
         home: EcoFriendly());
+=======
+        home: HomePage());
+>>>>>>> 2b9eb9de5597dd6eecca30f28bd86250b06c87a1
   }
 }
