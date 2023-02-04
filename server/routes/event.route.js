@@ -20,7 +20,8 @@ var storage = multer.diskStorage({
 
 var upload = multer({ storage: storage });
 
-router.post("/registerevent", upload.single("image"), async (req, res) => {
+router.post("/registerevent", fetchUser, async (req, res) => {
+  console.log(req.body);
   try {
     let success = false;
     let dir = __dirname.split("\\");
@@ -31,20 +32,14 @@ router.post("/registerevent", upload.single("image"), async (req, res) => {
       description: req.body.description,
       date: req.body.date,
       time: req.body.time,
-      image: {
-        data: fs.readFileSync(
-          path.join(dir + "\\uploads\\" + req.file.filename)
-        ),
-        contentType: "image/jpg",
-      },
       categories: req.body.categories,
       venue: req.body.venue,
-      addedby: req.body.addedby,
+      addedby: req.user.id,
       isOver: false,
     });
 
     success = true;
-    res.json({ success });
+    res.status(200).json({ event });
   } catch (err) {
     console.log(err);
     res.json({ status: "error", error: err });
@@ -66,12 +61,15 @@ router.post("/participate", fetchUser, async (req, res) => {
     const user = await users.findById(req.user.id);
     user.participating = req.body.eventid;
     // const event = await events.findById(req.body('event-id'))
-    const event = await events.findOneAndUpdate({_id: req.body.eventid}, {$push: {participantid : req.user.id}})
-    res.send(event)
+    const event = await events.findOneAndUpdate(
+      { _id: req.body.eventid },
+      { $push: { participantid: req.user.id } }
+    );
+    res.send(event);
   } catch (error) {
     console.log(error);
     res.status(500).send("Some error occured");
   }
-})
+});
 
 module.exports = router;

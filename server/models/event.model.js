@@ -19,10 +19,6 @@ const eventSchema = new Schema({
     type: String,
     required: true,
   },
-  image: {
-    data: Buffer,
-    contentType: String,
-  },
   categories: {
     type: String,
   },
@@ -41,7 +37,7 @@ const eventSchema = new Schema({
   participantid: {
     type: [mongoose.Schema.Types.ObjectId],
     ref: "User",
-  }
+  },
 });
 
 const events = mongoose.model("Event", eventSchema);
