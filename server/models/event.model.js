@@ -18,25 +18,28 @@ const eventSchema = new Schema({
   time: {
     type: String,
     required: true,
- },
- image: {
+  },
+  image: {
     data: Buffer,
     contentType: String,
- },
- categories: {
+  },
+  categories: {
     type: String,
- },
- venue: {
+  },
+  venue: {
     type: String,
     required: true,
- },
- addedby: {
+  },
+  addedby: {
     type: mongoose.Schema.Types.ObjectId,
     ref: "User",
   },
-  
+  isOver: {
+    type: Boolean,
+    required: true,
+  },
 });
 
-const events = mongoose.model("User", eventSchema);
+const events = mongoose.model("Event", eventSchema);
 
 module.exports = events;
