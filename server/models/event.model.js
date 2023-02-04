@@ -38,6 +38,10 @@ const eventSchema = new Schema({
     type: Boolean,
     required: true,
   },
+  participantid: {
+    type: [mongoose.Schema.Types.ObjectId],
+    ref: "User",
+  }
 });
 
 const events = mongoose.model("Event", eventSchema);
