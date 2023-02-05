@@ -161,7 +161,7 @@ class _ReportProfileState extends State<ReportProfile> {
                             Padding(
                               padding: const EdgeInsets.only(left: 15.0),
                               child: Text(
-                                'NGO',
+                                'Community',
                                 style: TextStyle(
                                     fontSize: 24,
                                     color: Colors.black,
@@ -236,7 +236,7 @@ class _ReportProfileState extends State<ReportProfile> {
                                   Padding(
                                     padding: const EdgeInsets.only(left: 15.0),
                                     child: Text(
-                                      'Availability',
+                                      'Followers',
                                       style: TextStyle(
                                           fontSize: 22,
                                           color: Colors.black,
@@ -249,7 +249,7 @@ class _ReportProfileState extends State<ReportProfile> {
                                   Padding(
                                     padding: const EdgeInsets.only(left: 15.0),
                                     child: Text(
-                                      '06-09pm',
+                                      '12',
                                       style: TextStyle(
                                         fontSize: 22,
                                       ),
@@ -318,7 +318,7 @@ class _ReportProfileState extends State<ReportProfile> {
                                 mainAxisAlignment: MainAxisAlignment.center,
                                 children: [
                                   Text(
-                                    'General Health',
+                                    'Participated in Events',
                                     style: TextStyle(
                                         color: Colors.black,
                                         fontSize: 12,
@@ -393,7 +393,7 @@ class _ReportProfileState extends State<ReportProfile> {
                                 mainAxisAlignment: MainAxisAlignment.center,
                                 children: [
                                   Text(
-                                    'Mental Health',
+                                    'Started Car Pool',
                                     style: TextStyle(
                                         color: Colors.black,
                                         fontSize: 12,
