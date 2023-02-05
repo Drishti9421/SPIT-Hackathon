@@ -8,6 +8,8 @@ import 'package:app/pages/google_maps_page.dart';
 import 'package:app/pages/articles.dart';
 
 import 'package:app/pages/login_page.dart';
+import 'package:app/pages/marketplace.dart';
+import 'package:app/pages/userprofile.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:http/http.dart';
@@ -39,6 +41,6 @@ class MyApp extends StatelessWidget {
         theme: ThemeData(
           primarySwatch: Colors.blue,
         ),
-        home: MyWidget());
+        home: ReportProfile());
   }
 }
