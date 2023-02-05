@@ -41,13 +41,14 @@ dependencies:
   liquid_pull_to_refresh: ^3.0.1
   image_picker: ^0.8.6+1
   google_ml_kit: ^0.13.0
-  dio: ^3.0.10
+  
   enum_to_string: ^1.0.14
   equatable: ^1.2.6
   flutter_hooks: ^0.15.0
   hooks_riverpod: ^0.12.4
   html_character_entities: ^0.1.2+4
   meta: ^1.2.4
+  intl: ^0.18.0
 
 dev_dependencies:
   flutter_test:

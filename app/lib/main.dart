@@ -3,6 +3,7 @@
 import 'dart:convert';
 
 import 'package:app/pages/articles.dart';
+import 'package:app/pages/expene.dart';
 import 'package:app/pages/login_page.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -31,6 +32,6 @@ class MyApp extends StatelessWidget {
         theme: ThemeData(
           primarySwatch: Colors.blue,
         ),
-        home: FindArticle());
+        home: MyWidget());
   }
 }
