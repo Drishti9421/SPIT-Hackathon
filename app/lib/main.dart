@@ -2,6 +2,7 @@
 
 import 'dart:convert';
 
+import 'package:app/pages/classifier.dart';
 import 'package:app/pages/google_maps_page.dart';
 import 'package:app/pages/articles.dart';
 import 'package:app/pages/expene.dart';
@@ -34,6 +35,6 @@ class MyApp extends StatelessWidget {
         theme: ThemeData(
           primarySwatch: Colors.blue,
         ),
-        home: FindArticle());
+        home: Prescription());
   }
 }

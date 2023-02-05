@@ -30,6 +30,7 @@ class _HomePageState extends State<HomePage> {
 
   @override
   void initState() {
+    // TODO: implement initState
     getTokenFromSF().then((tokenValue) => {print(tokenValue)});
     super.initState();
   }
@@ -37,13 +38,13 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color(0xff9356FB),
+      backgroundColor: color.AppColor.gradientEndColor,
       body: Container(
         decoration: BoxDecoration(
             gradient: LinearGradient(
                 colors: [
-                  Color(0xffD772EA),
-                  Color(0xff9356FB),
+                  color.AppColor.gradientStartColor,
+                  color.AppColor.gradientEndColor
                 ],
                 begin: Alignment.topCenter,
                 end: Alignment.bottomCenter,
@@ -146,7 +147,7 @@ class _HomePageState extends State<HomePage> {
                                         planets[index].name,
                                         style: TextStyle(
                                           fontFamily: 'Avenir',
-                                          fontSize: 35,
+                                          fontSize: 44,
                                           color: const Color(0xff47455f),
                                           fontWeight: FontWeight.w900,
                                         ),
@@ -156,7 +157,7 @@ class _HomePageState extends State<HomePage> {
                                         planets[index].text,
                                         style: TextStyle(
                                           fontFamily: 'Avenir',
-                                          fontSize: 18,
+                                          fontSize: 23,
                                           color:
                                               color.AppColor.primaryTextColor,
                                           fontWeight: FontWeight.w500,

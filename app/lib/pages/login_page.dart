@@ -52,7 +52,7 @@ class _LoginPageState extends State<LoginPage> {
       token = data["authToken"];
       print(token);
       await addTokenToSF(token);
-      Get.to(() => AddFriends());
+      Get.to(() => HomePage());
     } else {
       throw "Error";
     }
