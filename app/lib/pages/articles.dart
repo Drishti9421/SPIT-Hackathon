@@ -2,9 +2,11 @@
 
 import 'dart:collection';
 import 'dart:convert';
-
+import 'package:app/widgets/colors.dart' as color;
+import 'package:app/pages/home_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:get/get.dart';
 import 'package:http/http.dart';
 
 class FindArticle extends StatefulWidget {
@@ -45,6 +47,12 @@ class _FindArticleState extends State<FindArticle> {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
+          leading: IconButton(
+            icon: Icon(Icons.arrow_back_ios),
+            onPressed: () {
+              Get.to(() => HomePage());
+            },
+          ),
           title: Center(child: Text('Articles')),
           backgroundColor: Colors.white,
           foregroundColor: Colors.black,
@@ -66,7 +74,13 @@ class _FindArticleState extends State<FindArticle> {
                           height: 190,
                           width: 330,
                           decoration: BoxDecoration(
-                            color: Color(0xFFDCEDF9),
+                            gradient: LinearGradient(
+                                colors: [
+                                  Color(0xff27b374),
+                                  Color(0xff19bdbd),
+                                ],
+                                begin: Alignment.bottomLeft,
+                                end: Alignment.bottomRight),
                             borderRadius: BorderRadius.circular(20),
                           ),
                           child: Row(
@@ -89,7 +103,7 @@ class _FindArticleState extends State<FindArticle> {
                                           'Title: ${data['articles'][i]['title']}',
                                           style: TextStyle(
                                               color: Color(0xFF0E1012),
-                                              fontSize: 12,
+                                              fontSize: 14,
                                               fontFamily: 'Poppins',
                                               fontWeight: FontWeight.w600),
                                         ),
@@ -106,7 +120,7 @@ class _FindArticleState extends State<FindArticle> {
                                         'Source: ${data['articles'][i]['source']['name']}',
                                         style: TextStyle(
                                             color: Color(0xFF4A545E),
-                                            fontSize: 10,
+                                            fontSize: 13,
                                             fontFamily: 'Poppins',
                                             fontWeight: FontWeight.w300),
                                       ),

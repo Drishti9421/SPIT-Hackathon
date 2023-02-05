@@ -2,11 +2,13 @@
 
 import 'dart:convert';
 
+import 'package:app/pages/expene.dart';
 import 'package:app/pages/classifier.dart';
 import 'package:app/pages/google_maps_page.dart';
 import 'package:app/pages/articles.dart';
 import 'package:app/pages/expene.dart';
 import 'package:app/pages/left_userprofile.dart';
+
 import 'package:app/pages/login_page.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -14,11 +16,14 @@ import 'package:http/http.dart';
 
 import 'pages/add_events.dart';
 import 'pages/addfriends.dart';
+import 'pages/book_car.dart';
+import 'pages/book_car_final.dart';
 import 'pages/dashboard.dart';
 import 'pages/ecofriendly.dart';
 import 'pages/events.dart';
 import 'pages/home_page.dart';
 import 'pages/recyling.dart';
+import 'pages/rentacar.dart';
 
 void main() {
   runApp(const MyApp());

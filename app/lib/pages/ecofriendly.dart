@@ -65,15 +65,14 @@ class _EcoFriendlyState extends State<EcoFriendly> {
                                 fit: BoxFit.fitWidth),
                             boxShadow: [
                               BoxShadow(
-                                  offset: Offset(5, 5),
+                                  offset: Offset(1, 0),
                                   blurRadius: 3,
-                                  color: color.AppColor.gradientSecond
+                                  color: Color.fromARGB(255, 163, 171, 171)
                                       .withOpacity(.3)),
                               BoxShadow(
-                                  offset: Offset(-5, -5),
+                                  offset: Offset(1, 0),
                                   blurRadius: 3,
-                                  color: color.AppColor.gradientSecond
-                                      .withOpacity(.3)),
+                                  color: Color(0xffe8ebeb).withOpacity(.3)),
                             ],
                           ),
                           child: Padding(
@@ -108,20 +107,18 @@ class _EcoFriendlyState extends State<EcoFriendly> {
                             borderRadius: BorderRadius.circular(15),
                             image: DecorationImage(
                                 image: AssetImage(
-                                  'lib/images/tshirt1.png',
+                                  'lib/images/tshirt2.png',
                                 ),
                                 fit: BoxFit.fitWidth),
                             boxShadow: [
                               BoxShadow(
-                                  offset: Offset(5, 5),
+                                  offset: Offset(1, 5),
                                   blurRadius: 3,
-                                  color: color.AppColor.gradientSecond
-                                      .withOpacity(.3)),
+                                  color: Color(0xffe8ebeb).withOpacity(.3)),
                               BoxShadow(
-                                  offset: Offset(-5, -5),
+                                  offset: Offset(1, 0),
                                   blurRadius: 3,
-                                  color: color.AppColor.gradientSecond
-                                      .withOpacity(.3)),
+                                  color: Color(0xffe8ebeb).withOpacity(.3)),
                             ],
                           ),
                           child: Padding(
@@ -164,20 +161,18 @@ class _EcoFriendlyState extends State<EcoFriendly> {
                             borderRadius: BorderRadius.circular(15),
                             image: DecorationImage(
                                 image: AssetImage(
-                                  'lib/images/tshirt1.png',
+                                  'lib/images/hairbrush.png',
                                 ),
                                 fit: BoxFit.fitWidth),
                             boxShadow: [
                               BoxShadow(
-                                  offset: Offset(5, 5),
+                                  offset: Offset(1, 0),
                                   blurRadius: 3,
-                                  color: color.AppColor.gradientSecond
-                                      .withOpacity(.3)),
+                                  color: Color(0xffe8ebeb).withOpacity(.3)),
                               BoxShadow(
-                                  offset: Offset(-5, -5),
+                                  offset: Offset(1, 0),
                                   blurRadius: 3,
-                                  color: color.AppColor.gradientSecond
-                                      .withOpacity(.3)),
+                                  color: Color(0xffe8ebeb).withOpacity(.3)),
                             ],
                           ),
                           child: Padding(
@@ -188,7 +183,7 @@ class _EcoFriendlyState extends State<EcoFriendly> {
                                 child: InkWell(
                                   onTap: () {},
                                   child: Text(
-                                    'Buy Tshirt',
+                                    'Buy Hair Brush',
                                     style: TextStyle(
                                         fontSize: 20,
                                         color: color.AppColor.homePageDetail),
@@ -212,20 +207,18 @@ class _EcoFriendlyState extends State<EcoFriendly> {
                             borderRadius: BorderRadius.circular(15),
                             image: DecorationImage(
                                 image: AssetImage(
-                                  'lib/images/tshirt1.png',
+                                  'lib/images/bags.png',
                                 ),
                                 fit: BoxFit.fitWidth),
                             boxShadow: [
                               BoxShadow(
-                                  offset: Offset(5, 5),
+                                  offset: Offset(1, 0),
                                   blurRadius: 3,
-                                  color: color.AppColor.gradientSecond
-                                      .withOpacity(.3)),
+                                  color: Color(0xffe8ebeb).withOpacity(.3)),
                               BoxShadow(
-                                  offset: Offset(-5, -5),
+                                  offset: Offset(1, 0),
                                   blurRadius: 3,
-                                  color: color.AppColor.gradientSecond
-                                      .withOpacity(.3)),
+                                  color: Color(0xffe8ebeb).withOpacity(.3)),
                             ],
                           ),
                           child: Padding(
@@ -236,7 +229,7 @@ class _EcoFriendlyState extends State<EcoFriendly> {
                                 child: InkWell(
                                   onTap: () {},
                                   child: Text(
-                                    'Buy Tshirt',
+                                    'Buy Bags',
                                     style: TextStyle(
                                         fontSize: 20,
                                         color: color.AppColor.homePageDetail),
