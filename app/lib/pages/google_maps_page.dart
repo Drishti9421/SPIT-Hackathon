@@ -1,4 +1,4 @@
-// ignore_for_file: prefer_const_constructors, unnecessary_new, unused_local_variable, prefer_typing_uninitialized_variables
+// ignore_for_file: prefer_const_constructors, unnecessary_new, unused_local_variable, prefer_typing_uninitialized_variables, unused_import, prefer_collection_literals
 
 import 'dart:convert';
 
