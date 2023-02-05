@@ -4,6 +4,7 @@ import 'dart:convert';
 import 'dart:ffi';
 
 import 'package:app/pages/add_events.dart';
+import 'package:app/pages/addfriends.dart';
 import 'package:app/pages/events.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -37,7 +38,7 @@ class _LoginPageState extends State<LoginPage> {
   Future<void> getData() async {
     print(email);
     print(pass);
-    var res = await post(Uri.parse("http://192.168.137.228:5000/loginuser"),
+    var res = await post(Uri.parse("http://10.0.2.2:5000/loginuser"),
         headers: {
           "Content-Type": "application/json",
         },
@@ -51,7 +52,7 @@ class _LoginPageState extends State<LoginPage> {
       token = data["authToken"];
       print(token);
       await addTokenToSF(token);
-      Get.to(() => AddEventsPage());
+      Get.to(() => AddFriends());
     } else {
       throw "Error";
     }

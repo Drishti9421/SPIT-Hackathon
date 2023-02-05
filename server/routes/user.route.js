@@ -11,10 +11,6 @@ router.post(
   [body("email").isEmail(), body("password").isLength({ min: 5 })],
   async (req, res) => {
     let success = false;
-    const errors = validationResult(req);
-    if (!errors.isEmpty()) {
-      res.status(400).json({ success, errors: errors.array() });
-    }
     try {
       let user = await users.findOne({ email: req.body.email });
 
@@ -83,6 +79,34 @@ router.post(
 router.get("/getUserId", fetchUser, async (req, res) => {
   try {
     const user = await users.findOne({ _id: req.user.id });
+    res.json(user);
+  } catch (err) {
+    console.log(err);
+    res.status(500).send("Some error occured");
+  }
+});
+
+router.get("/getAllUsers", fetchUser, async (req, res) => {
+  try {
+    const curr = await users.findOne({ _id: req.user.id });
+    const user = await users.find({
+      _id: { $ne: req.user.id, $nin: curr.friends },
+    });
+    console.log(user);
+    res.json(user);
+  } catch (err) {
+    console.log(err);
+    res.status(500).send("Some error occured");
+  }
+});
+
+router.post("/addFriend", fetchUser, async (req, res) => {
+  console.log(req.body, req.headers);
+  try {
+    const user = await users.findOneAndUpdate(
+      { _id: req.user.id },
+      { $push: { friends: req.body.id } }
+    );
     res.json(user);
   } catch (err) {
     console.log(err);

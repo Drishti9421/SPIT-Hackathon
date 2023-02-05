@@ -44,7 +44,6 @@ dependencies:
   flutter_polyline_points: ^1.0.0
   google_maps_flutter: ^2.2.3
   geolocator: ^9.0.2
-  dio: ^3.0.10
   enum_to_string: ^1.0.14
   equatable: ^1.2.6
   flutter_hooks: ^0.15.0
