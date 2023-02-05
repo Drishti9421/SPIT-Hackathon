@@ -2,7 +2,7 @@
 
 import 'dart:collection';
 import 'dart:convert';
-
+import 'package:app/widgets/colors.dart' as color;
 import 'package:app/pages/home_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -74,7 +74,13 @@ class _FindArticleState extends State<FindArticle> {
                           height: 190,
                           width: 330,
                           decoration: BoxDecoration(
-                            color: Color(0xFFDCEDF9),
+                            gradient: LinearGradient(
+                                colors: [
+                                  Color(0xff27b374),
+                                  Color(0xff19bdbd),
+                                ],
+                                begin: Alignment.bottomLeft,
+                                end: Alignment.bottomRight),
                             borderRadius: BorderRadius.circular(20),
                           ),
                           child: Row(
