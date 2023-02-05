@@ -1,10 +1,10 @@
 // ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables, sort_child_properties_last, avoid_print, prefer_typing_uninitialized_variables
 
-import 'dart:convert';
-
 import 'package:app/pages/home_page.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+
+import 'dart:convert';
 import 'package:http/http.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
@@ -62,7 +62,6 @@ class _AddEventsPageState extends State<AddEventsPage> {
 
   @override
   void initState() {
-    // TODO: implement initState
     super.initState();
     getTokenFromSF();
   }
@@ -101,7 +100,11 @@ class _AddEventsPageState extends State<AddEventsPage> {
                 decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(20),
                     gradient: LinearGradient(
-                        colors: [Color(0xff9356fb), Color(0xffb772ea)],
+                        colors: [
+                          // Color(0xffb4fbb8),
+                          Color(0xff57c7b8),
+                          Color(0xff12958d),
+                        ],
                         begin: Alignment.topCenter,
                         end: Alignment.bottomCenter,
                         stops: [0.3, 0.7])),
