@@ -203,7 +203,7 @@ class _HomePageState extends State<HomePage> {
                                 fontFamily: 'Avenir',
                                 fontSize: 200,
                                 color: color.AppColor.primaryTextColor
-                                    .withOpacity(0.08),
+                                    .withOpacity(0.1),
                                 fontWeight: FontWeight.w900,
                               ),
                               textAlign: TextAlign.left,
