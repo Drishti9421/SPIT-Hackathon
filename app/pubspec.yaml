@@ -50,6 +50,7 @@ dependencies:
   hooks_riverpod: ^0.12.4
   html_character_entities: ^0.1.2+4
   meta: ^1.2.4
+  intl: ^0.18.0
 
 dev_dependencies:
   flutter_test:
