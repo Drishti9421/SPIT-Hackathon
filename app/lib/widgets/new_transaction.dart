@@ -1,7 +1,11 @@
 // ignore_for_file: unnecessary_null_comparison
 
+import 'dart:convert';
+
 import 'package:flutter/material.dart';
+import 'package:http/http.dart';
 import 'package:intl/intl.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class NewTransaction extends StatefulWidget {
   final Function addTx;
@@ -13,6 +17,34 @@ class NewTransaction extends StatefulWidget {
 }
 
 class _NewTransactionState extends State<NewTransaction> {
+  late String tokenValue;
+  late String uid;
+  late var url;
+  late var response;
+  var events;
+  bool textScanning = false;
+
+  getTokenFromSF() async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+
+    setState(() {
+      tokenValue = prefs.getString('token')!;
+    });
+  }
+
+  void sendPoints() async {
+    url = Uri.parse('http://10.0.2.2:5000/getPoints');
+    response = await post(
+      url,
+      headers: {"auth-token": tokenValue, "Content-Type": "application/json"},
+      body: jsonEncode({
+        "point": 20,
+      }),
+    );
+
+    setState(() {});
+  }
+
   final titleController = TextEditingController();
   DateTime? _selectedDate;
   final amountController = TextEditingController();
@@ -45,6 +77,12 @@ class _NewTransactionState extends State<NewTransaction> {
         _selectedDate = pickedDate;
       });
     });
+  }
+
+  @override
+  void initState() {
+    super.initState();
+    getTokenFromSF();
   }
 
   @override
@@ -93,11 +131,13 @@ class _NewTransactionState extends State<NewTransaction> {
                 )),
             // ignore: deprecated_member_use
             MaterialButton(
-                onPressed: () => submitData(),
+                onPressed: () => {
+                      submitData(),
+                    },
                 color: Theme.of(context).primaryColor,
                 textColor: Theme.of(context).textTheme.button!.color,
                 child: Text(
-                  'Add Transaction',
+                  'Add Task',
                   style: TextStyle(
                     fontSize: 16,
                     fontWeight: FontWeight.bold,
