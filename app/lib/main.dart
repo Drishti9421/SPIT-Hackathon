@@ -9,6 +9,7 @@ import 'package:http/http.dart';
 
 import 'pages/add_events.dart';
 import 'pages/addfriends.dart';
+import 'pages/dashboard.dart';
 import 'pages/ecofriendly.dart';
 import 'pages/events.dart';
 import 'pages/home_page.dart';
@@ -30,6 +31,6 @@ class MyApp extends StatelessWidget {
         theme: ThemeData(
           primarySwatch: Colors.blue,
         ),
-        home: EcoFriendly());
+        home: Dashboard());
   }
 }
