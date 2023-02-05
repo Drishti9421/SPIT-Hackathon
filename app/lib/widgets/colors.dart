@@ -27,7 +27,7 @@ class AppColor {
   static Color secondaryTextColor = Color(0xFFE4979E);
   static Color titleTextColor = Colors.white;
   static Color contentTextColor = Color(0xff868686);
-  static Color navigationColor = Color(0xFF00C9FF);
+  static Color navigationColor = Color.fromARGB(255, 97, 54, 255);
   static Color gradientStartColor = Color(0xFF47ad5d);
   static Color gradientEndColor = Color(0xff349ad8a);
 }

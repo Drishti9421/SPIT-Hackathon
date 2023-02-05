@@ -21,7 +21,6 @@ var storage = multer.diskStorage({
 var upload = multer({ storage: storage });
 
 router.post("/registerevent", fetchUser, async (req, res) => {
-  console.log(req.body);
   try {
     let success = false;
     let dir = __dirname.split("\\");
