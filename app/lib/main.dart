@@ -3,6 +3,7 @@
 import 'dart:convert';
 
 import 'package:app/pages/expene.dart';
+import 'package:app/pages/classifier.dart';
 import 'package:app/pages/google_maps_page.dart';
 import 'package:app/pages/articles.dart';
 
@@ -15,6 +16,7 @@ import 'pages/add_events.dart';
 import 'pages/addfriends.dart';
 import 'pages/book_car.dart';
 import 'pages/book_car_final.dart';
+import 'pages/dashboard.dart';
 import 'pages/ecofriendly.dart';
 import 'pages/events.dart';
 import 'pages/home_page.dart';
@@ -37,6 +39,6 @@ class MyApp extends StatelessWidget {
         theme: ThemeData(
           primarySwatch: Colors.blue,
         ),
-        home: RentCar());
+        home: EventsPage());
   }
 }

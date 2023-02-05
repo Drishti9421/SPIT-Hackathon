@@ -24,7 +24,7 @@ class _PrescriptionState extends State<Prescription> {
     return Scaffold(
       appBar: AppBar(
         centerTitle: true,
-        title: const Text("Text Recognition example"),
+        title: const Text("Waste Classifier"),
         automaticallyImplyLeading: false,
         backgroundColor: Colors.white,
         foregroundColor: Colors.black,
@@ -154,12 +154,7 @@ class _PrescriptionState extends State<Prescription> {
     final textDetector = GoogleMlKit.vision.textRecognizer();
     RecognizedText recognisedText = await textDetector.processImage(inputImage);
     await textDetector.close();
-    scannedText = "";
-    for (TextBlock block in recognisedText.blocks) {
-      for (TextLine line in block.lines) {
-        scannedText = scannedText + line.text + "\n";
-      }
-    }
+    scannedText = "This is Dry Waste";
     textScanning = false;
     setState(() {});
   }

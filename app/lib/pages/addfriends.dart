@@ -1,6 +1,10 @@
-// ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables, sized_box_for_whitespace, avoid_unnecessary_containers
+// ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables, sized_box_for_whitespace, avoid_unnecessary_containers, prefer_typing_uninitialized_variables, avoid_print
+
+import 'dart:convert';
 
 import 'package:flutter/material.dart';
+import 'package:http/http.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 import '../widgets/popular_doctors_user.dart';
 
@@ -12,6 +16,39 @@ class AddFriends extends StatefulWidget {
 }
 
 class _AddFriendsState extends State<AddFriends> {
+  late String tokenValue;
+  late var url;
+  late var response;
+  var users;
+  bool isloading = true;
+
+  getTokenFromSF() async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+
+    setState(() {
+      tokenValue = prefs.getString('token')!;
+      fetch();
+    });
+  }
+
+  void fetch() async {
+    url = Uri.parse('http://10.0.2.2:5000/getAllUsers');
+    print("ass" + tokenValue);
+    response = await get(url, headers: {"auth-token": tokenValue});
+    print(response.body);
+    setState(() {
+      users = jsonDecode(response.body);
+      print(users[0]);
+      isloading = false;
+    });
+  }
+
+  @override
+  void initState() {
+    getTokenFromSF();
+    super.initState();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -211,90 +248,23 @@ class _AddFriendsState extends State<AddFriends> {
               height: 15,
             ),
             Container(
-              height: 420,
-              width: 360,
-              child: ListView(
-                children: [
-                  PopularCard(
-                    color1: Colors.white,
-                    disease1: 'Plant Trees',
-                    doctorName: 'Drishti Dhingami',
-                    image2: 'lib/images/friend1.png',
-                    text3: '15 Mutuals',
-                  ),
-                  // PopularCard(
-                  //   color1: Colors.white,
-                  //   disease1: 'Psychologist in Winsoft hospital',
-                  //   doctorName: 'Dr. Banner',
-                  //   image2: 'lib/images/doc19.jpg',
-                  //   text3: '4.2 (8 reviews)',
-                  // ),
-                  // PopularCard(
-                  //   color1: Colors.white,
-                  //   disease1: 'Chiropractor in Sanghvi hospital',
-                  //   doctorName: 'Dr. Strange',
-                  //   image2: 'lib/images/doc21.jpg',
-                  //   text3: '4.7 (4 reviews)',
-                  // ),
-                  // PopularCard(
-                  //   color1: Colors.white,
-                  //   disease1: 'Dentist in Nayar hospital',
-                  //   doctorName: 'Dr. Amit Shah',
-                  //   image2: 'lib/images/doc18.jpg',
-                  //   text3: '4.5 (5 reviews)',
-                  // ),
-                  // PopularCard(
-                  //   color1: Colors.white,
-                  //   disease1: 'ENT specialist in Phoenix hospital',
-                  //   doctorName: 'Dr. Pinky Shah',
-                  //   image2: 'lib/images/doc14.jpg',
-                  //   text3: '4.5 (5 reviews)',
-                  // ),
-                  // PopularCard(
-                  //   color1: Colors.white,
-                  //   disease1: 'Gastrologist in apollo hospital',
-                  //   doctorName: 'Dr. Dhingani',
-                  //   image2: 'lib/images/doc15.jpg',
-                  //   text3: '4.5 (5 reviews)',
-                  // ),
-                  // PopularCard(
-                  //   color1: Colors.white,
-                  //   disease1: 'Trichologist in apollo hospital',
-                  //   doctorName: 'Dr. Avish Shah',
-                  //   image2: 'lib/images/doc17.jpg',
-                  //   text3: '4.5 (5 reviews)',
-                  // ),
-                  // PopularCard(
-                  //   color1: Colors.white,
-                  //   disease1: 'Ayurvedic in apollo hospital',
-                  //   doctorName: 'Dr. Solanki',
-                  //   image2: 'lib/images/doc11.png',
-                  //   text3: '4.5 (5 reviews)',
-                  // ),
-                  // PopularCard(
-                  //   color1: Colors.white,
-                  //   disease1: 'Gastrologist in apollo hospital',
-                  //   doctorName: 'Dr. Mirgh',
-                  //   image2: 'lib/images/doc12.png',
-                  //   text3: '4.5 (5 reviews)',
-                  // ),
-                  // PopularCard(
-                  //   color1: Colors.white,
-                  //   disease1: 'Dietician in apollo hospital',
-                  //   doctorName: 'Dr. Ronnit',
-                  //   image2: 'lib/images/doc13.png',
-                  //   text3: '4.5 (5 reviews)',
-                  // ),
-                  // PopularCard(
-                  //   color1: Colors.white,
-                  //   disease1: 'Homeopath in City hospital',
-                  //   doctorName: 'Dr. Hetvi',
-                  //   image2: 'lib/images/doctor.png',
-                  //   text3: '4.5 (5 reviews)',
-                  // ),
-                ],
-              ),
-            )
+                height: 420,
+                width: 360,
+                child: !isloading
+                    ? ListView.builder(
+                        itemCount: users.length,
+                        itemBuilder: (context, i) {
+                          return PopularCard(
+                            uid: users[i]['_id'],
+                            token: tokenValue,
+                            color1: Colors.white,
+                            disease1: users[i]['address'],
+                            doctorName: users[i]['name'],
+                            image2: 'lib/images/friend${i + 1}.png',
+                            text3: '${i + 5} Mutuals',
+                          );
+                        })
+                    : Text("Hello"))
           ],
         ),
       )),

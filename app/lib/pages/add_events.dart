@@ -102,8 +102,8 @@ class _AddEventsPageState extends State<AddEventsPage> {
                     gradient: LinearGradient(
                         colors: [
                           // Color(0xffb4fbb8),
-                          Color(0xff57c7b8),
-                          Color(0xff12958d),
+                          Color.fromARGB(255, 214, 214, 214),
+                          Color.fromARGB(255, 214, 214, 214),
                         ],
                         begin: Alignment.topCenter,
                         end: Alignment.bottomCenter,
@@ -122,8 +122,9 @@ class _AddEventsPageState extends State<AddEventsPage> {
                             Text('Event Name:',
                                 style: TextStyle(
                                     fontSize: 18,
+                                    fontWeight: FontWeight.w600,
                                     fontFamily: 'Poppins',
-                                    color: Colors.white)),
+                                    color: Colors.black87)),
                           ],
                         ),
                       ),
@@ -134,7 +135,7 @@ class _AddEventsPageState extends State<AddEventsPage> {
                           decoration: InputDecoration(
                               hintText: 'Beach Cleaning Drive',
                               hintStyle: TextStyle(
-                                  color: Color.fromARGB(255, 246, 242, 247),
+                                  color: Color.fromARGB(255, 220, 217, 220),
                                   fontSize: 14),
                               border: OutlineInputBorder(
                                   borderSide: BorderSide(
@@ -154,7 +155,8 @@ class _AddEventsPageState extends State<AddEventsPage> {
                                 style: TextStyle(
                                     fontSize: 18,
                                     fontFamily: 'Poppins',
-                                    color: Colors.white)),
+                                    fontWeight: FontWeight.w600,
+                                    color: Colors.black87)),
                           ],
                         ),
                       ),
@@ -165,7 +167,7 @@ class _AddEventsPageState extends State<AddEventsPage> {
                           decoration: InputDecoration(
                               hintText: 'Cleaning drive at Juhu Beach',
                               hintStyle: TextStyle(
-                                  color: Color.fromARGB(255, 246, 242, 247),
+                                  color: Color.fromARGB(255, 220, 217, 220),
                                   fontSize: 14),
                               border: OutlineInputBorder(
                                   borderSide: BorderSide(
@@ -185,7 +187,8 @@ class _AddEventsPageState extends State<AddEventsPage> {
                                 style: TextStyle(
                                     fontSize: 18,
                                     fontFamily: 'Poppins',
-                                    color: Colors.white)),
+                                    fontWeight: FontWeight.w600,
+                                    color: Colors.black87)),
                           ],
                         ),
                       ),
@@ -196,7 +199,7 @@ class _AddEventsPageState extends State<AddEventsPage> {
                           decoration: InputDecoration(
                               hintText: '28-12-2',
                               hintStyle: TextStyle(
-                                  color: Color.fromARGB(255, 246, 242, 247),
+                                  color: Color.fromARGB(255, 220, 217, 220),
                                   fontSize: 14),
                               border: OutlineInputBorder(
                                   borderSide: BorderSide(
@@ -216,7 +219,8 @@ class _AddEventsPageState extends State<AddEventsPage> {
                                 style: TextStyle(
                                     fontSize: 18,
                                     fontFamily: 'Poppins',
-                                    color: Colors.white)),
+                                    fontWeight: FontWeight.w600,
+                                    color: Colors.black87)),
                           ],
                         ),
                       ),
@@ -227,7 +231,7 @@ class _AddEventsPageState extends State<AddEventsPage> {
                           decoration: InputDecoration(
                               hintText: '06.00am',
                               hintStyle: TextStyle(
-                                  color: Color.fromARGB(255, 246, 242, 247),
+                                  color: Color.fromARGB(255, 220, 217, 220),
                                   fontSize: 14),
                               border: OutlineInputBorder(
                                   borderSide: BorderSide(
@@ -247,7 +251,8 @@ class _AddEventsPageState extends State<AddEventsPage> {
                                 style: TextStyle(
                                     fontSize: 18,
                                     fontFamily: 'Poppins',
-                                    color: Colors.white)),
+                                    fontWeight: FontWeight.w600,
+                                    color: Colors.black87)),
                           ],
                         ),
                       ),
@@ -258,7 +263,7 @@ class _AddEventsPageState extends State<AddEventsPage> {
                           decoration: InputDecoration(
                               hintText: 'Cleaning',
                               hintStyle: TextStyle(
-                                  color: Color.fromARGB(255, 246, 242, 247),
+                                  color: Color.fromARGB(255, 220, 217, 220),
                                   fontSize: 14),
                               border: OutlineInputBorder(
                                   borderSide: BorderSide(
@@ -274,11 +279,12 @@ class _AddEventsPageState extends State<AddEventsPage> {
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.start,
                           children: [
-                            Text('Categories:',
+                            Text('Venue:',
                                 style: TextStyle(
                                     fontSize: 18,
+                                    fontWeight: FontWeight.w600,
                                     fontFamily: 'Poppins',
-                                    color: Colors.white)),
+                                    color: Colors.black87)),
                           ],
                         ),
                       ),
@@ -287,7 +293,6 @@ class _AddEventsPageState extends State<AddEventsPage> {
                         child: TextFormField(
                           onChanged: (val) => venue = val,
                           decoration: InputDecoration(
-                              hintText: 'Cleaning',
                               hintStyle: TextStyle(
                                   color: Color.fromARGB(255, 246, 242, 247),
                                   fontSize: 14),
@@ -312,7 +317,8 @@ class _AddEventsPageState extends State<AddEventsPage> {
                                 style: TextStyle(
                                     fontSize: 18,
                                     fontFamily: 'Poppins',
-                                    color: Colors.white)),
+                                    fontWeight: FontWeight.w600,
+                                    color: Colors.black87)),
                           ],
                         ),
                       ),
@@ -361,7 +367,10 @@ class _AddEventsPageState extends State<AddEventsPage> {
                           child: Text(
                             'Submit',
                             style: TextStyle(
-                                fontSize: 26, color: Color(0xffffffff)),
+                                fontSize: 22,
+                                fontWeight: FontWeight.w600,
+                                fontFamily: 'Poppins',
+                                color: Color.fromARGB(255, 0, 0, 0)),
                           ))
                     ],
                   ),
