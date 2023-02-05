@@ -57,7 +57,7 @@ class _ReportProfileState extends State<ReportProfile> {
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
                                 Text(
-                                  'Patients',
+                                  'Points',
                                   style: TextStyle(
                                       color: Color(0xFF0E1012),
                                       fontFamily: 'Poppins',
@@ -174,7 +174,7 @@ class _ReportProfileState extends State<ReportProfile> {
                             Padding(
                               padding: const EdgeInsets.only(left: 15.0),
                               child: Text(
-                                'Saday Sadav',
+                                'NSS ',
                                 style: TextStyle(
                                   fontSize: 20,
                                 ),

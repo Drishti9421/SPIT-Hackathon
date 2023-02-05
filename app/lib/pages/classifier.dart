@@ -1,9 +1,14 @@
 // ignore_for_file: prefer_const_constructors, prefer_interpolation_to_compose_strings, avoid_unnecessary_containers, deprecated_member_use
 
+import 'dart:convert';
 import 'dart:io';
+import 'package:app/pages/home_page.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:google_ml_kit/google_ml_kit.dart';
+import 'package:http/http.dart';
 import 'package:image_picker/image_picker.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class Prescription extends StatefulWidget {
   const Prescription({Key? key}) : super(key: key);
@@ -13,11 +18,44 @@ class Prescription extends StatefulWidget {
 }
 
 class _PrescriptionState extends State<Prescription> {
+  late String tokenValue;
+  late String uid;
+  late var url;
+  late var response;
+  var events;
   bool textScanning = false;
 
   XFile? imageFile;
 
   String scannedText = "";
+
+  getTokenFromSF() async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+
+    setState(() {
+      tokenValue = prefs.getString('token')!;
+    });
+  }
+
+  void sendPoints() async {
+    url = Uri.parse('http://10.0.2.2:5000/getPoints');
+    response = await post(
+      url,
+      headers: {"auth-token": tokenValue, "Content-Type": "application/json"},
+      body: jsonEncode({
+        "point": 20,
+      }),
+    );
+    Get.to(HomePage());
+
+    setState(() {});
+  }
+
+  @override
+  void initState() {
+    super.initState();
+    getTokenFromSF();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -125,7 +163,26 @@ class _PrescriptionState extends State<Prescription> {
                     scannedText,
                     style: TextStyle(fontSize: 20),
                   ),
-                )
+                ),
+                SizedBox(
+                  height: 20,
+                ),
+                Text("Did you dispose the waste correctly?"),
+                Row(mainAxisAlignment: MainAxisAlignment.center, children: [
+                  ElevatedButton(
+                      onPressed: () {
+                        sendPoints();
+                      },
+                      child: Text("Yes")),
+                  SizedBox(
+                    width: 10,
+                  ),
+                  ElevatedButton(
+                      onPressed: () {
+                        Get.to(HomePage());
+                      },
+                      child: Text("No"))
+                ])
               ],
             )),
       )),
@@ -157,10 +214,5 @@ class _PrescriptionState extends State<Prescription> {
     scannedText = "This is Dry Waste";
     textScanning = false;
     setState(() {});
-  }
-
-  @override
-  void initState() {
-    super.initState();
   }
 }

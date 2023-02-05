@@ -6,6 +6,7 @@ import 'package:app/pages/classifier.dart';
 import 'package:app/pages/google_maps_page.dart';
 import 'package:app/pages/articles.dart';
 import 'package:app/pages/expene.dart';
+import 'package:app/pages/left_userprofile.dart';
 import 'package:app/pages/login_page.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -35,6 +36,6 @@ class MyApp extends StatelessWidget {
         theme: ThemeData(
           primarySwatch: Colors.blue,
         ),
-        home: Prescription());
+        home: ReportProfile());
   }
 }

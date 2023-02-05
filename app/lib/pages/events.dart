@@ -2,8 +2,10 @@
 
 import 'dart:convert';
 
+import 'package:app/pages/home_page.dart';
 import 'package:app/widgets/colors.dart' as color;
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:http/http.dart';
 
 import 'package:liquid_pull_to_refresh/liquid_pull_to_refresh.dart';
@@ -51,7 +53,7 @@ class _EventsPageState extends State<EventsPage> {
   }
 
   void fetch() async {
-    url = Uri.parse('http://192.168.137.228:5000/allEvents');
+    url = Uri.parse('http://10.0.2.2:5000/allEvents');
     response = await get(url);
     print(response.body);
     setState(() {
@@ -274,6 +276,7 @@ class _EventsPageState extends State<EventsPage> {
                                                             participate(
                                                                 events[i]
                                                                     ['_id']);
+                                                            Get.to(HomePage());
                                                           },
                                                     style: TextButton.styleFrom(
                                                       disabledForegroundColor:

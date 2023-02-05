@@ -449,7 +449,6 @@ packages:
     source: hosted
     version: "2.6.2"
   intl:
-    dependency: transitive
     dependency: "direct main"
     description:
       name: intl

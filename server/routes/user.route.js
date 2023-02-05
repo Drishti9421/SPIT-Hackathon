@@ -114,4 +114,17 @@ router.post("/addFriend", fetchUser, async (req, res) => {
   }
 });
 
+router.post("/getPoints", fetchUser, async (req, res) => {
+  try {
+    const user = await users.findOneAndUpdate(
+      { _id: req.user.id },
+      { $inc: { points: req.body.point } }
+    );
+    res.json(user);
+  } catch (err) {
+    console.log(err);
+    res.status(500).send("Some error occured");
+  }
+});
+
 module.exports = router;
