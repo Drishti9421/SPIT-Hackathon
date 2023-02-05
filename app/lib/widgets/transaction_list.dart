@@ -43,7 +43,7 @@ class TransactionList extends StatelessWidget {
                           padding: EdgeInsets.all(6),
                           child: FittedBox(
                               child: Text(
-                            '\$${transactions[index].amount}',
+                            '\$P{transactions[index].amount}',
                             style: TextStyle(
                               fontSize: 13,
                               color: Colors.grey,

@@ -1,5 +1,9 @@
 // ignore_for_file: use_key_in_widget_constructors, library_private_types_in_public_api, import_of_legacy_library_into_null_safe, prefer_const_literals_to_create_immutables, prefer_const_constructors, avoid_print, unused_import, prefer_interpolation_to_compose_strings, unnecessary_cast
 
+import 'package:app/pages/classifier.dart';
+import 'package:app/pages/ecofriendly.dart';
+import 'package:app/pages/events.dart';
+import 'package:app/pages/google_maps_page.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -107,13 +111,14 @@ class _HomePageState extends State<HomePage> {
                     return InkWell(
                       onTap: () {
                         if (index == 1) {
-                          Get.to(() => MarketPlace());
+                          Get.to(() => EcoFriendly());
                         } else if (index == 2) {
-                          Get.to(() => MarketPlace());
+                          print("2");
+                          Get.to(() => Prescription());
                         } else if (index == 3) {
-                          Get.to(() => MarketPlace());
+                          Get.to(() => MapScreen());
                         } else {
-                          Get.to(() => MarketPlace());
+                          Get.to(() => EventsPage());
                         }
                         // Navigator.push(
                         //   context,
@@ -147,7 +152,7 @@ class _HomePageState extends State<HomePage> {
                                         planets[index].name,
                                         style: TextStyle(
                                           fontFamily: 'Avenir',
-                                          fontSize: 44,
+                                          fontSize: 40,
                                           color: const Color(0xff47455f),
                                           fontWeight: FontWeight.w900,
                                         ),

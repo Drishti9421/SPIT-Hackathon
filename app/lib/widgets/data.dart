@@ -19,7 +19,7 @@ class PlanetInfo {
 List<PlanetInfo> planets = [
   PlanetInfo(1,
       name: 'Community',
-      text: 'Volunteer for social cause',
+      text: 'Volunteer in social cause',
       iconImage: 'lib/images/earth.png',
       description:
           "Zipping around the sun in only 88 days, Mercury is the closest planet to the sun, and it's also the smallest, only a little bit larger than Earth's moon. Because its so close to the sun (about two-fifths the distance between Earth and the sun), Mercury experiences dramatic changes in its day and night temperatures: Day temperatures can reach a scorching 840  F (450 C), which is hot enough to melt lead. Meanwhile on the night side, temperatures drop to minus 290 F (minus 180 C).",
@@ -58,12 +58,13 @@ List<PlanetInfo> planets = [
       description:
           "The fourth planet from the sun is Mars, and it's a cold, desert-like place covered in dust. This dust is made of iron oxides, giving the planet its iconic red hue. Mars shares similarities with Earth: It is rocky, has mountains, valleys and canyons, and storm systems ranging from localized tornado-like dust devils to planet-engulfing dust storms. ",
       images: []),
-  // PlanetInfo(5,
-  //     name: 'Jupiter',
-  //     iconImage: 'lib/images/jupiter.png',
-  //     description:
-  //         "The fifth planet from the sun, Jupiter is a giant gas world that is the most massive planet in our solar system — more than twice as massive as all the other planets combined, according to NASA. Its swirling clouds are colorful due to different types of trace gases. And a major feature in its swirling clouds is the Great Red Spot, a giant storm more than 10,000 miles wide. It has raged at more than 400 mph for the last 150 years, at least. Jupiter has a strong magnetic field, and with 75 moons, it looks a bit like a miniature solar system.",
-  //     images: []),
+  PlanetInfo(5,
+      name: 'Events',
+      text: 'Community Events',
+      iconImage: 'lib/images/abc.png',
+      description:
+          "The fifth planet from the sun, Jupiter is a giant gas world that is the most massive planet in our solar system — more than twice as massive as all the other planets combined, according to NASA. Its swirling clouds are colorful due to different types of trace gases. And a major feature in its swirling clouds is the Great Red Spot, a giant storm more than 10,000 miles wide. It has raged at more than 400 mph for the last 150 years, at least. Jupiter has a strong magnetic field, and with 75 moons, it looks a bit like a miniature solar system.",
+      images: []),
   // PlanetInfo(6,
   //     name: 'Saturn',
   //     iconImage: 'lib/images/saturn.png',

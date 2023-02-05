@@ -109,8 +109,8 @@ class _MapScreenState extends State<MapScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Multiple Markers in Google Map"),
-        backgroundColor: Colors.deepOrangeAccent,
+        title: Text("Nearby Recycling Shops"),
+        backgroundColor: Color.fromARGB(255, 64, 255, 182),
       ),
       body: GoogleMap(
         //Map widget from google_maps_flutter package
