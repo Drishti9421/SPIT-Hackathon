@@ -1,8 +1,5 @@
 const mongoose = require("mongoose");
 
-mongoose.connect(
-  "mongodb+srv://mangodb:mangodb@cluster0.eud9kav.mongodb.net/?retryWrites=true&w=majority",
-  () => {
-    console.log("Connected to Mongo");
-  }
-);
+mongoose.connect(process.env.MONGODB_URI, { useNewUrlParser: true }, () => {
+  console.log("Connected to Mongo");
+});

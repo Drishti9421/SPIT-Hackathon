@@ -7,9 +7,8 @@ import 'package:app/pages/classifier.dart';
 import 'package:app/pages/google_maps_page.dart';
 import 'package:app/pages/articles.dart';
 import 'package:app/pages/expene.dart';
-import 'package:app/pages/left_userprofile.dart';
-
 import 'package:app/pages/login_page.dart';
+import 'package:app/pages/userprofile.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:http/http.dart';
