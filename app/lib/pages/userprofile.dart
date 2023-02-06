@@ -97,7 +97,8 @@ class _ReportProfileState extends State<ReportProfile> {
                             decoration: BoxDecoration(
                                 image: DecorationImage(
                                     fit: BoxFit.fitWidth,
-                                    image: AssetImage('lib/images/pose.png'))),
+                                    image:
+                                        AssetImage('lib/images/reward.png'))),
                           ),
                         ],
                       ),

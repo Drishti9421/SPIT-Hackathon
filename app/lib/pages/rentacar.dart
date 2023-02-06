@@ -84,7 +84,7 @@ class _RentCarState extends State<RentCar> {
                                   decoration: BoxDecoration(
                                       image: DecorationImage(
                                           image: AssetImage(
-                                              'lib/images/beach_drive.webp'),
+                                              'lib/images/carpool.jpg'),
                                           fit: BoxFit.fill),
                                       borderRadius: BorderRadius.circular(30)),
                                 ),
